@@ -4,8 +4,8 @@ import {useEffect, useState} from "react";
 
 function App() {
 
-    const [color, setColor] = useState('');
-    const [quote, setQuote] = useState({text: '', author: ''})
+    const [color, setColor] = useState('#000000');
+    const [quote, setQuote] = useState({text: 'Loading', author: 'Spegy'})
 
     useEffect(() => {
         newQuote();
@@ -13,7 +13,6 @@ function App() {
 
     function newQuote() {
         const randomColor = Math.floor(Math.random() * 16777215).toString(16);
-        setColor('#' + randomColor);
 
         const options = {
             method: 'GET',
@@ -24,6 +23,7 @@ function App() {
             .then(res => res.json())
             .then(data => {
                 setQuote({text: data[0].quote, author: data[0].author});
+                setColor('#' + randomColor);
             })
     }
 
