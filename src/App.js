@@ -5,7 +5,7 @@ import {useEffect, useState} from "react";
 function App() {
 
     const [color, setColor] = useState('#000000');
-    const [quote, setQuote] = useState({text: 'Loading', author: 'Spegy'})
+    const [quote, setQuote] = useState({text: 'Loading...', author: 'Spegy'})
 
     useEffect(() => {
         newQuote();
@@ -13,18 +13,18 @@ function App() {
 
     function newQuote() {
         const randomColor = Math.floor(Math.random() * 16777215).toString(16);
-
         const options = {
             method: 'GET',
             headers: {'X-Api-Key': 'Hzw9wiAG7dv910xEJQs4jQ==uEjuHLpd5AbPXyC4'},
             contentType: 'application/json'
         }
-        fetch('https://api.api-ninjas.com/v1/quotes?category=inspirational', options)
+        fetch('https://api.api-ninjas.com/v1/quotes?category=best', options)
             .then(res => res.json())
             .then(data => {
                 setQuote({text: data[0].quote, author: data[0].author});
                 setColor('#' + randomColor);
             })
+            .catch(error => setQuote({text: 'Quote not found.', author: 'Spegy'}))
     }
 
     return (
