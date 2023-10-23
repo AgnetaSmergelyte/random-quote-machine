@@ -1,6 +1,7 @@
 import './App.css';
 import {useEffect, useState} from "react";
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXTwitter } from "@fortawesome/free-brands-svg-icons";
 
 function App() {
 
@@ -35,9 +36,7 @@ function App() {
                 <div className="buttons">
                     <a style={{backgroundColor: color}} id="tweet-quote"
                        href={`https://twitter.com/intent/tweet?text="${quote.text}" ${quote.author}`} target="_blank">
-                        <img
-                            src="https://iconsplace.com/wp-content/uploads/_icons/ffffff/256/png/twitter-icon-18-256.png"
-                            alt="twitter"/>
+                        <FontAwesomeIcon icon={faXTwitter} />
                     </a>
                     <button style={{backgroundColor: color}} id="new-quote" onClick={newQuote}>New quote</button>
                 </div>
