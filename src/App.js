@@ -32,7 +32,7 @@ function App() {
         <div className="container" style={{backgroundColor: color, color: color}}>
             <div id="quote-box">
                 <h1 id="text">{quote.text}</h1>
-                <div id="author">- {quote.author}</div>
+                <p id="author">- {quote.author}</p>
                 <div className="buttons">
                     <a style={{backgroundColor: color}} id="tweet-quote"
                        href={`https://twitter.com/intent/tweet?text="${quote.text}" ${quote.author}`} target="_blank">
